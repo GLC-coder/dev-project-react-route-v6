@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+//# sourceURL=dynamicScript.js 
+import { Route, Routes, Navigate, Link } from "react-router-dom";
+
+import AllQuotes from "./pages/AllQuotes";
+import NewQuote from "./pages/NewQuote";
+import QuoteDetail from "./pages/QuoteDetail";
+import NotFound from "./pages/NotFound";
+import Layout from "./layout/Layout";
+import Comments from "./components/comments/Comments";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Navigate to="/quotes" replace />} />
+        <Route path="/quotes" element={<AllQuotes />} />
+        <Route path="/new-quote" element={<NewQuote />} />
+        <Route path="/quotes/:quoteId/*" element={<QuoteDetail />}>
+          <Route
+            path=""
+            element={
+              <div className="centered">
+                <Link className="btn--flat" to={`comments`}>
+                  Loads comments.
+                </Link>
+              </div>
+            }
+          />
+
+          <Route path={`comments`} element={<Comments />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
   );
 }
 

@@ -1,6 +1,7 @@
 # Getting Started with Famous Quotes Web App
 
-This project was hosted on firebase 
+This project was hosted on firebase.
+
 Hosting URL:[https://famous-quotes-4831f.web.app](https://famous-quotes-4831f.web.app).
 
 ## Available Scripts

@@ -5,7 +5,7 @@ const MainNavigation = (props) => {
  
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>Great Quotes</div>
+      <div className={classes.logo}>Famous Quotes</div>
       <nav className={classes.nav}>
         <ul>
           <li>
